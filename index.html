@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow-y: scroll;
+    }
+
+    header,
+    section,
+    footer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .circle {
+      border: 2px solid black;
+      border-radius: 50%;
+      padding: 10px;
+    }
+
+    .rounded-border {
+      border: 2px solid black;
+      border-radius: 20px;
+      padding: 10px;
+      transition: border-color 0.5s ease;
+    }
+    
+    /* 暗黑模式样式定义 */
+    body.dark-mode {
+      background-color: #000000;
+      color: #ffffff;
+    }
+
+    /* 边框颜色在暗黑模式下更改为白色 */
+    body.dark-mode .rounded-border {
+      border-color: #FFFFFF;
+    }
+  </style>
+  <script>
+    var languages = [
+      {
+        code: "en",
+        name: "English"
+      },
+      {
+        code: "zh-CN",
+        name: "中文"
+      },
+      {
+        code: "de",
+        name: "Deutsch"
+      },
+      {
+        code: "fr",
+        name: "Français"
+      },
+      {
+        code: "ru",
+        name: "Русский"
+      },
+      {
+        code: "ja",
+        name: "日本語"
+      }
+    ];
+    
+    function toggleLanguage() {
+      var currentLang = document.documentElement.lang;
+      var currentIndex = languages.findIndex(function(lang) {
+        return lang.code === currentLang;
+      });
+      var nextIndex = (currentIndex + 1) % languages.length;
+      var nextLang = languages[nextIndex];
+    
+      document.documentElement.lang = nextLang.code;
+      updateText();
+      document.getElementById("toggle-button").innerText = nextLang.name;
+    }
+    </script>
+  <script> 
+    alert("这里是manisyourdad的zhaonineji(赵九鸡)分站 "); 
+    alert("为缅怀赵九鸡而创立"); 
+    </script>
+  
+  <script>
+    var content = {
+      "en": {
+        "welcomeText": "Welcome to My Website!",
+        "toggleButton": "Toggle Language",
+        "toggleDarkMode":"Toggle Mode",
+        "introHeading": "Introduction",
+        "introContent": "This is a simple website.",
+        "aboutHeading": "About Us",
+        "aboutContent": "Here is our content about us.",
+        "footerText": "© zhaonieji manisyourdad. All rights reserved."
+      },
+      "zh-CN": {
+        "welcomeText": "欢迎来到赵九鸡的网站！",
+        "toggleButton": "切换语言",
+        "toggleDarkMode":"切换模式",
+        "introHeading": "简介",
+        "introContent": "这是一个简单的网站。",
+        "aboutHeading": "关于我们",
+        "aboutContent": "这是关于我们的内容。",
+        "footerText": "© zhaonieji manisyourdad. All rights reserved."
+      },
+      "de": {
+        "welcomeText": "Willkommen auf der Website von Zhaojiuji!",
+        "toggleButton": "Sprache umschalten",
+        "toggleDarkMode": "Modus wechseln",
+        "introHeading": "Einführung",
+        "introContent": "Dies ist eine einfache Webseite.",
+        "aboutHeading": "Über uns",
+        "aboutContent": "Hier ist unser Inhalt über uns.",
+        "footerText": "© zhaonieji manisyourdad. Alle Rechte vorbehalten."
+      },
+      "fr": {
+        "welcomeText": "Bienvenue sur le site de Zhaojiuji !",
+        "toggleButton": "Changer de langue",
+        "toggleDarkMode": "Changer de mode",
+        "introHeading": "Introduction",
+        "introContent": "Il s'agit d'un simple site web.",
+        "aboutHeading": "À propos de nous",
+        "aboutContent": "Voici notre contenu à notre sujet.",
+        "footerText": "© zhaonieji manisyourdad. Tous droits réservés."
+      },
+      "ru": {
+        "welcomeText": "Добро пожаловать на сайт Zhaojiuji!",
+        "toggleButton": "Переключить язык",
+        "toggleDarkMode":"Переключить режим",
+        "introHeading": "Введение",
+        "introContent": "Это простой веб-сайт.",
+        "aboutHeading": "О нас",
+        "aboutContent": "Вот наш контент о нас.",
+        "footerText": "© zhaonieji manisyourdad.. Все права защищены."
+      },
+      "ja": {
+        "welcomeText": "趙九鶏のウェブサイトへようこそ!",
+        "toggleButton": "言語切り替え",
+        "toggleDarkMode":"モード切り替え",
+        "introHeading": "紹介",
+        "introContent": "これはシンプルなウェブサイトです。",
+        "aboutHeading": "私たちについて",
+        "aboutContent": "ここに私たちに関する内容があります。",
+        "footerText": "© zhaonieji manisyourdad. All rights reserved."
+      }
+    };
+
+    var darkMode = false;
+
+    function toggleLanguage() {
+      var currentLang = document.documentElement.lang;
+      if (currentLang === "en") {
+        document.documentElement.lang = "zh-CN";
+      } else if (currentLang === "zh-CN") {
+        document.documentElement.lang = "de";
+      } else if (currentLang === "de") {
+        document.documentElement.lang = "fr";
+      } else if (currentLang === "fr") {
+        document.documentElement.lang = "ru";
+      } else if (currentLang === "ru") {
+        document.documentElement.lang = "ja";
+      } else {
+        document.documentElement.lang = "en";
+      }
+      updateText();
+    }
+
+    function toggleDarkMode() {
+      darkMode = !darkMode;
+
+      if (darkMode) {
+        document.body.classList.add("dark-mode");
+      } else {
+        document.body.classList.remove("dark-mode");
+      }
+    }
+
+    function updateText() {
+      var lang = document.documentElement.lang;
+      var langContent = content[lang];
+
+      document.getElementById("welcome-text").innerText = langContent.welcomeText;
+      document.getElementById("toggle-button").innerText = langContent.toggleButton;
+      document.getElementById("dark-mode-toggle").innerText = langContent.toggleDarkMode;
+      document.getElementById("intro-heading").innerText = langContent.introHeading;
+      document.getElementById("intro-content").innerText = langContent.introContent;
+      document.getElementById("about-heading").innerText = langContent.aboutHeading;
+      document.getElementById("about-content").innerText = langContent.aboutContent;
+      document.getElementById("footer-text").innerText = langContent.footerText;
+    }
+  </script>
+  
+</head>
+<body oncontextmenu="return false;">
+  <script>
+    document.onkeydown = function(e) {
+      if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && e.keyCode == 73)) { 
+        return false;
+      }
+    };
+  </script>
+
+  <script>
+    setInterval(function() {
+      if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
+      }
+    }, 1000);
+
+  </script>
+
+  <header>
+    <h1 id="welcome-text" class="rounded-border">Welcome to Zhaojiuji's Website!</h1>
+    <li> <a href="https://manisyourdad.github.io" class="link">Manisyourdad</a></li>
+    <li> <a href="https://github.com" class="link">Github</a></li>
+  </header>
+
+  <section>
+    <h2 id="intro-heading" class="rounded-border">Introduction</h2>
+    <p id="intro-content" class="rounded-border">This is a simple website.</p>
+  </section>
+
+  <section>
+    <h2 id="about-heading" class="rounded-border">About Us</h2>
+    <p id="about-content" class="rounded-border">Here is our content about us.</p>
+  </section>
+
+  <footer>
+    <button id="toggle-button" onclick="toggleLanguage()" class="rounded-border">English</button>
+    <button id="dark-mode-toggle" onclick="toggleDarkMode()" class="rounded-border">Toggle Mode</button>
+    <p id="footer-text" class="rounded-border">&copy; zhaonieji manisyourdad. All rights reserved.</p>
+    <img src="./manisyourdad.png"width="557" height="87">
+  </footer>
+
+  <script>
+    updateText();
+  </script>
+</body>
+</html>
